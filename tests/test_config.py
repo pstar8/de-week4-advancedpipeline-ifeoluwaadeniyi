@@ -1,10 +1,22 @@
 import pytest
-
-
 from pipeline.config import ConfigManager
 
-def test_config_manager():
-    config_manager = ConfigManager('../pipeline.cfg')
+@pytest.fixture
+def temp_config_file(tmp_path):
+    config_file = tmp_path / "test_pipeline.cfg" 
+    
+    config_content = """[API]
+                    base_url = https://fakestoreapi.com
+                    url_limit = 5
+                    """
+    config_file.write_text(config_content)  
+
+    return str(config_file)
+
+def test_config_manager(temp_config_file):
+    config_manager = ConfigManager(temp_config_file)
+    assert config_manager.get_base_url() == 'https://fakestoreapi.com'  
+    assert config_manager.get_url_limit() == 5
     assert config_manager is not None, "Failed to load configuration"
 
 def test_config_file_not_found():
@@ -12,17 +24,16 @@ def test_config_file_not_found():
         ConfigManager('nonexistent_file.cfg')
 
 
-def test_get_base_url():
-    config_manager = ConfigManager('../pipeline.cfg')
-    base_url = config_manager.get_base_url()
-    assert base_url == "https://fakestoreapi.com", f"Expected base URL to be 'https://fakestoreapi.com', got '{base_url}'"
+def test_get_base_url(temp_config_file):
+    config_manager = ConfigManager(temp_config_file)
+    
+    assert config_manager.get_base_url() == 'https://fakestoreapi.com'
 
-def test_get_url_limit():
-    config_manager = ConfigManager('../pipeline.cfg')
+def test_get_limit(temp_config_file):
+    config_manager = ConfigManager(temp_config_file)
+    
     limit = config_manager.get_url_limit()
-    print(f"Limit: {limit}")
-    print(f"Type: {type(limit)}")
-    print(f"Expected: 5")
-    print(f"Match: {limit == 5}")
+    assert limit == 5, f"/nExpected limit to be 5, got '{limit}'"
+    assert isinstance(limit, int) 
 
 print("\n✓ All manual tests passed!")
