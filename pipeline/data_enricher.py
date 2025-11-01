@@ -7,7 +7,7 @@ class DataEnricher:
         self.products_df = pd.DataFrame(products)
         self.users_df = pd.DataFrame(users)
     
-    
+
     def enrich(self):
         merged_df = pd.merge(
             self.products_df,
