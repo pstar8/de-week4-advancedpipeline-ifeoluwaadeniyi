@@ -27,10 +27,6 @@ __pycache__/
 Thumbs.db
 *.bak
 
-# Project specific outputs
-*.log
-seller_performance_report.json
-
 # Distribution / packaging
 dist/
 build/

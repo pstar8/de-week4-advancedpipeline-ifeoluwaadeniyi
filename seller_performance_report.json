@@ -1,0 +1,42 @@
+{
+    "derek": {
+        "total_revenue": 51570.65,
+        "product_count": 3,
+        "average_price": 47.64333333333334
+    },
+    "donero": {
+        "total_revenue": 1099.0,
+        "product_count": 1,
+        "average_price": 10.99
+    },
+    "jimmie_k": {
+        "total_revenue": 303747.25,
+        "product_count": 5,
+        "average_price": 159.594
+    },
+    "johnd": {
+        "total_revenue": 51230.0,
+        "product_count": 1,
+        "average_price": 109.0
+    },
+    "kate_h": {
+        "total_revenue": 27153.210000000003,
+        "product_count": 1,
+        "average_price": 39.99
+    },
+    "kevinryan": {
+        "total_revenue": 139998.6,
+        "product_count": 1,
+        "average_price": 999.99
+    },
+    "mor_2314": {
+        "total_revenue": 243161.5,
+        "product_count": 5,
+        "average_price": 199.97
+    },
+    "snyder": {
+        "total_revenue": 20130.4,
+        "product_count": 3,
+        "average_price": 46.73333333333334
+    }
+}
